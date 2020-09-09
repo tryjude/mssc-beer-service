@@ -1,10 +1,14 @@
 version: 2.1
 
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:11-browsers-legacy
+      
 orbs:
   maven: circleci/maven@0.0.12
 
 workflows:
   maven_test:
     jobs:
-      - image: circleci/openjdk:11-jdk
       - maven/test # checkout, build, test, and upload test results
